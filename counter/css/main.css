@@ -1,0 +1,13 @@
+ody {
+    width: 50vw;
+    color: #665d65;
+    margin: 0 auto;
+    border-right: 2px dashed#665d65;
+    border-left: 2px dashed #665d65
+}
+
+h1,
+p,
+#main {
+    text-align: center;
+}
