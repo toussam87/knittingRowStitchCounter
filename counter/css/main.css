@@ -1,13 +1,55 @@
+<<<<<<< HEAD
 ody {
+=======
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:600');
+
+body {
+>>>>>>> ugh
     width: 50vw;
     color: #665d65;
     margin: 0 auto;
     border-right: 2px dashed#665d65;
+<<<<<<< HEAD
     border-left: 2px dashed #665d65
+=======
+    border-left: 2px dashed #665d65;
+    font-family: 'Titillium Web', sans-serif;
+>>>>>>> ugh
 }
 
 h1,
 p,
 #main {
     text-align: center;
+<<<<<<< HEAD
+=======
+}
+
+#navigation {
+    width: 25vw;
+    position: absolute;
+    right: 0%;
+    top: 4%;
+    margin: 0 auto;
+}
+
+button {
+    border: solid 1px;
+    background-color: transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Titillium Web', sans-serif;
+    letter-spacing: .1vw;
+}
+#decrease,
+#increase {
+    margin: 5px;
+}
+
+#addSection,
+#removeSection {
+    display: block;
+    text-align: left;
+    margin: 10px 25px;
+>>>>>>> ugh
 }
