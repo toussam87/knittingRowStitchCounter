@@ -45,5 +45,12 @@ button {
 
 #maxRowCount {
     display: block;
-    margin: 15px;
+    margin: 15px 20px;
+    color: #665d65;
+    border: #665d65 1px solid;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    width: 15vw;
+    font-size: calc(4px + .8vw);
+    text-align: center;
 }
