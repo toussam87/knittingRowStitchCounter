@@ -1,5 +1,6 @@
 var maxRowCountNumber;
 
+//function to decrease current Row Count
 function decreaseCount() {
     var currentRowCountNumber = parseInt(document.getElementById("rowCount").innerHTML);
 if (currentRowCountNumber > 0) {
@@ -10,23 +11,31 @@ if (currentRowCountNumber > 0) {
     }
 };
 
+//function to increase current Row Count
 function increaseCount() {
     var currentRowCountNumber = parseInt(document.getElementById("rowCount").innerHTML);
     currentRowCountNumber++;
-    if (currentRowCountNumber <= maxRowCountNumber) {
+    //checks to see if current Row Count is less than or equal to the desired set number of max row count
+    if (currentRowCountNumber < maxRowCountNumber) {
         document.getElementById("rowCount").innerHTML = currentRowCountNumber;
+        currentRowCountNumber++;
     }
-    else if (currentRowCountNumber = maxRowCountNumber) {
-        // currentRowCountNumber++;
-        alert("You have reached your desired number of rows.")
+
+    //checks to see if current Row Count is equal to the desired set number of max row count
+    else if (currentRowCountNumber === maxRowCountNumber) {
+        document.getElementById("rowCount").innerHTML = currentRowCountNumber;
+        alert("You have reached your desired number of rows.");
+        currentRowCountNumber++;
     } 
+    //increments current row count past set max row count
     else {
-        // currentRowCountNumber++;
-        console.log("You are going over your desired number of rows.");
+        document.getElementById("rowCount").innerHTML = currentRowCountNumber;
+        alert("You are going over your desired number of rows.");
+        currentRowCountNumber++;
     };
-    currentRowCountNumber++;
 };
 
+// function sets max Row count
 function changeMaxRowCount(event) {
     var a = event.target.value;
     a.id = "maxRowCountNumber";
@@ -35,7 +44,6 @@ function changeMaxRowCount(event) {
     if (isNaN(a) === false) {
         if (a > 0) {
             maxRowCountNumber = a;
-            alert("it is bigger than 0");
         } 
         else {
                 alert("You've entered a number less than or equal to zero.");
@@ -44,7 +52,6 @@ function changeMaxRowCount(event) {
     else {
         alert("Please enter a number.");
     }
-    debugger;
 };
 
 window.onload = function() {
