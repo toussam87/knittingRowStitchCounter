@@ -1,3 +1,5 @@
+var maxRowCountNumber;
+
 function decreaseCount() {
     var currentRowCountNumber = parseInt(document.getElementById("rowCount").innerHTML);
 if (currentRowCountNumber > 0) {
@@ -11,14 +13,28 @@ if (currentRowCountNumber > 0) {
 function increaseCount() {
     var currentRowCountNumber = parseInt(document.getElementById("rowCount").innerHTML);
     currentRowCountNumber++;
-    document.getElementById("rowCount").innerHTML = currentRowCountNumber;
+    if (currentRowCountNumber <= maxRowCountNumber) {
+        document.getElementById("rowCount").innerHTML = currentRowCountNumber;
+    }
+    else if (currentRowCountNumber = maxRowCountNumber) {
+        // currentRowCountNumber++;
+        alert("You have reached your desired number of rows.")
+    } 
+    else {
+        // currentRowCountNumber++;
+        console.log("You are going over your desired number of rows.");
+    };
+    currentRowCountNumber++;
 };
 
 function changeMaxRowCount(event) {
     var a = event.target.value;
+    a.id = "maxRowCountNumber";
+    console.log(document.getElementById(maxRowCountNumber));
 
     if (isNaN(a) === false) {
         if (a > 0) {
+            maxRowCountNumber = a;
             alert("it is bigger than 0");
         } 
         else {
@@ -32,17 +48,7 @@ function changeMaxRowCount(event) {
 };
 
 window.onload = function() {
-    decreaseFunction();
-    increaseFunction();
+    document.getElementById("decrease").addEventListener("click", decreaseCount, false);
+    document.getElementById("increase").addEventListener("click", increaseCount, false);
     document.getElementById("maxRowCount").addEventListener("change", changeMaxRowCount, false);
-};
-
-function decreaseFunction() {
-    var decreaseRow = document.getElementById("decrease");
-    decreaseRow.addEventListener("click", decreaseCount, false);
-};
-
-function increaseFunction() {
-    var increaseRow = document.getElementById("increase");
-    increaseRow.addEventListener("click", increaseCount, false);
 };
