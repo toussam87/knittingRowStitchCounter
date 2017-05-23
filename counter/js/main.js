@@ -13,23 +13,16 @@ function decreaseCount() {
 
 //function to increase current Row Count
 function increaseCount() {
-    //checks to see if current Row Count is less than or equal to the desired set number of max row count
-    if (currentRowCountNumber !== maxRowCountNumber) {
-        currentRowCountNumber++;
-        updateRowCounterDisplay();
-    }
-
+    currentRowCountNumber++;
+    updateRowCounterDisplay();
+    
     //checks to see if current Row Count is equal to the desired set number of max row count
-    else if (currentRowCountNumber === maxRowCountNumber) {
+    if (currentRowCountNumber === maxRowCountNumber) {
         alert("You have reached your desired number of rows.");
-        currentRowCountNumber++;
-         updateRowCounterDisplay();
     } 
     //increments current row count past set max row count
-    else {
+    else if (currentRowCountNumber > maxRowCountNumber) {
         alert("You are going over your desired number of rows.");
-        currentRowCountNumber++;
-        updateRowCounterDisplay();
     };
 };
 
@@ -51,20 +44,24 @@ function updateRowCounterDisplay() {
 function changeMaxRowCount(event) {
     var a = event.target.value;
 
-    console.log(document.getElementById(maxRowCountNumber));
+    // console.log(document.getElementById(maxRowCountNumber));
 
-    if (isNaN(a) === false) {
+    if (isNaN(a) === false && a !== "") {
         if (a > 0) {
             maxRowCountNumber = parseInt(a);
-            updateRowCounterDisplay();
+            
         } 
         else {
             alert("You've entered a number less than or equal to zero.");
         }
     }
-    else {
+    else if (isNaN(a)) {
         alert("Please enter a number.");
     }
+    else if (a === "") {
+        maxRowCountNumber = undefined;
+    }
+    updateRowCounterDisplay();
 };
 
 window.onload = function() {
