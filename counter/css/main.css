@@ -14,6 +14,13 @@ p,
     text-align: center;
 }
 
+#main {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin: 20px;
+    padding: 20px 0 15px;
+}
+
 #navigation {
     width: 25vw;
     position: absolute;
@@ -34,6 +41,7 @@ button {
 #decrease,
 #increase {
     margin: 5px;
+    display: inline-block;
 }
 
 #addSection,
@@ -44,7 +52,6 @@ button {
 }
 
 #maxRowCount {
-    display: block;
     margin: 15px 20px;
     color: #665d65;
     border: #665d65 1px solid;
@@ -53,4 +60,19 @@ button {
     width: 15vw;
     font-size: calc(4px + .8vw);
     text-align: center;
+}
+
+#sectionName{
+    color: #665d65;
+    border: #665d65 1px solid;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    width: 15vw;
+    font-size: calc(4px + .8vw);
+    text-align: center;
+    margin: 15px;
+}
+
+#secondaryMain{
+    display: block;
 }
