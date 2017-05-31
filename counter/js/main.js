@@ -69,15 +69,6 @@ function addSection(){
     var newSection = document.createElement("div");
     var grabMain = document.getElementById("main");
     grabMain.appendChild(newSection);
-    newSection.append(<div id="counter1">
-            <input id="sectionName" placeholder="Section Name"></input>
-                <span id="secondaryMain">
-                    <button id="decrease"> - </button> 
-                    <span id="rowCount">0 </span>
-                    <button id="increase"> + </button>
-                </span>
-            <input id="maxRowCount" placeholder="Enter Max Row Count"></input>
-        </div>)
 }
 
 window.onload = function() {
