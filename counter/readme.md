@@ -20,10 +20,10 @@ DONE 7. Add an input element via javascript
 
 DONE 9. User can reset max row count
 
-10. user is able to label section based of knitting pattern 
+DONE 10. user is able to label section based of knitting pattern 
 
 
-HINTS FOR #7:
+HINTS FOR NUMBER 7:
 
 https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
 
