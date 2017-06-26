@@ -12,7 +12,7 @@ DONE 6. when a user tries to decrease row count when row count is already 0, ale
 
 DONE 7. Add an input element via javascript
 
-7a. User is able to add section to page
+DONE 7a. User is able to add section to page
 
 8. User is able to remove section from page
 

@@ -1,5 +1,6 @@
 var maxRowCountNumber;
 var currentRowCountNumber = 0;
+var sectionNumber = 1;
 
 //function to decrease current Row Count
 function decreaseCount() {
@@ -64,11 +65,20 @@ function changeMaxRowCount(event) {
     updateRowCounterDisplay();
 };
 
+function increaseSectionNumber() {
+    sectionNumber++;
+}
+
 function addSection(){
-    console.log("test")
     var newSection = document.createElement("div");
-    var grabMain = document.getElementById("main");
-    grabMain.appendChild(newSection);
+    newSection.id = sectionNumber++;
+    newSection.innerHTML = '<div id="main"> <div id="sectionNumber">  <input id="sectionName" placeholder="Section Name"></input> <span id="secondaryMain"> <button id="decrease"> - </button> <span id="rowCount">0 </span> <button id="increase"> + </button> </span> <input id="maxRowCount" placeholder="Enter Max Row Count"></input> </div> </div>';
+    document.body.appendChild(newSection);
+}
+
+function removeSection() {
+    var e = document.body;
+    e.parentNode.removeChild(e);
 }
 
 window.onload = function() {
@@ -76,4 +86,5 @@ window.onload = function() {
     document.getElementById("increase").addEventListener("click", increaseCount, false);
     document.getElementById("maxRowCount").addEventListener("change", changeMaxRowCount, false);
     document.getElementById("addSection").addEventListener("click", addSection, false);
+    document.getElementById("removeSection").addEventListener("click", removeSection, false);
 };
