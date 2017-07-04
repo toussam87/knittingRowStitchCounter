@@ -19,9 +19,9 @@
     </div>
 
     <div id="main">
-        <div id="sectionNumber">
-            <input id="sectionName" placeholder="Section Name"></input>
-                <span id="secondaryMain">
+        <div class="section">
+            <input class="sectionName" placeholder="Section Name"></input>
+                <span class="count">
                     <button id="decrease"> - </button> 
                     <span id="rowCount">0 </span>
                     <button id="increase"> + </button>
@@ -29,6 +29,16 @@
             <input id="maxRowCount" placeholder="Enter Max Row Count"></input>
         </div>
     </div>
+
+    <template id="insertableTemplate">
+        <input class="sectionName" placeholder="Section Name"></input>
+            <span class="count">
+                <button id="decrease"> - </button> 
+                <span id="rowCount">0 </span>
+                <button id="increase"> + </button>
+            </span>
+        <input id="maxRowCount" placeholder="Enter Max Row Count"></input>
+    </template>
 </body>
 
 </html>

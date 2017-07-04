@@ -1,6 +1,5 @@
 var maxRowCountNumber;
 var currentRowCountNumber = 0;
-var sectionNumber = 1;
 
 //function to decrease current Row Count
 function decreaseCount() {
@@ -15,6 +14,7 @@ function decreaseCount() {
 //function to increase current Row Count
 function increaseCount() {
     currentRowCountNumber++;
+    console.log(currentRowCountNumber);
     updateRowCounterDisplay();
     
     //checks to see if current Row Count is equal to the desired set number of max row count
@@ -31,6 +31,7 @@ function updateRowCounterDisplay() {
 
     // maxRowCountNumber
     // currentRowCountNumber
+    
     var rowCounterDisplay = document.getElementById("rowCount");
 
     if (maxRowCountNumber > 0) {
@@ -40,6 +41,8 @@ function updateRowCounterDisplay() {
         rowCounterDisplay.innerHTML = currentRowCountNumber;
     };
 };
+
+console.log(currentRowCountNumber);
 
 // function sets max Row count
 function changeMaxRowCount(event) {
@@ -63,23 +66,33 @@ function changeMaxRowCount(event) {
         maxRowCountNumber = undefined;
     }
     updateRowCounterDisplay();
-};
-
-function increaseSectionNumber() {
-    sectionNumber++;
 }
 
 function addSection(){
     var newSection = document.createElement("div");
-    newSection.id = sectionNumber++;
-    newSection.innerHTML = '<div id="main"> <div id="sectionNumber">  <input id="sectionName" placeholder="Section Name"></input> <span id="secondaryMain"> <button id="decrease"> - </button> <span id="rowCount">0 </span> <button id="increase"> + </button> </span> <input id="maxRowCount" placeholder="Enter Max Row Count"></input> </div> </div>';
-    document.body.appendChild(newSection);
+    newSection.className = 'section';
+    newSection.innerHTML += '<input class="sectionName" placeholder="Section Name"></input><span class="count"><button id="decrease">-</button><span id="rowCount">0</span><button id="increase">+</button></span><input id="maxRowCount" placeholder="Enter Max Row Count"></input></div></div>';
+    document.getElementById("main").appendChild(newSection);
+}
+
+function appendClass() {
+    document.querySelectorAll(".section").forEach(function(n) {
+
+        n.addEventListener("click", function(event) {
+                var clickedThing = event.target;
+
+                if (!clickedThing.classList.contains("selected")) {
+            clickedThing.classList.add("selected");
+            }
+        });
+    });
 }
 
 function removeSection() {
-    var e = document.body;
-    e.parentNode.removeChild(e);
-}
+    document.querySelectorAll(".selected").forEach(function(thingToBeRemoved) {
+        thingToBeRemoved.remove();
+        });
+    };
 
 window.onload = function() {
     document.getElementById("decrease").addEventListener("click", decreaseCount, false);
