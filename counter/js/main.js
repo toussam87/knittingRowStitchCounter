@@ -14,7 +14,6 @@ function decreaseCount() {
 //function to increase current Row Count
 function increaseCount() {
     currentRowCountNumber++;
-    console.log(currentRowCountNumber);
     updateRowCounterDisplay();
     
     //checks to see if current Row Count is equal to the desired set number of max row count
@@ -31,7 +30,6 @@ function updateRowCounterDisplay() {
 
     // maxRowCountNumber
     // currentRowCountNumber
-    
     var rowCounterDisplay = document.getElementById("rowCount");
 
     if (maxRowCountNumber > 0) {
@@ -41,8 +39,6 @@ function updateRowCounterDisplay() {
         rowCounterDisplay.innerHTML = currentRowCountNumber;
     };
 };
-
-console.log(currentRowCountNumber);
 
 // function sets max Row count
 function changeMaxRowCount(event) {
@@ -71,12 +67,12 @@ function changeMaxRowCount(event) {
 function addSection(){
     var newSection = document.createElement("div");
     newSection.className = 'section';
-    newSection.innerHTML += '<input class="sectionName" placeholder="Section Name"></input><span class="count"><button id="decrease">-</button><span id="rowCount">0</span><button id="increase">+</button></span><input id="maxRowCount" placeholder="Enter Max Row Count"></input></div></div>';
+    newSection.innerHTML = '<input class="sectionName" placeholder="Section Name"></input> <span class="count"> <button id="decrease"> - </button> <span id="rowCount">0 </span> <button id="increase"> + </button> </span> <input id="maxRowCount" placeholder="Enter Max Row Count"></input> </div> </div>';
     document.getElementById("main").appendChild(newSection);
 }
 
 function appendClass() {
-    document.querySelectorAll(".section").forEach(function(n) {
+    document.querySelectorAll("#main .section").forEach(function(n) {
 
         n.addEventListener("click", function(event) {
                 var clickedThing = event.target;
@@ -100,4 +96,6 @@ window.onload = function() {
     document.getElementById("maxRowCount").addEventListener("change", changeMaxRowCount, false);
     document.getElementById("addSection").addEventListener("click", addSection, false);
     document.getElementById("removeSection").addEventListener("click", removeSection, false);
+    appendClass();
+
 };
