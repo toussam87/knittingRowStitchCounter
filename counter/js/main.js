@@ -30,6 +30,8 @@ function updateRowCounterDisplay() {
 
     // maxRowCountNumber
     // currentRowCountNumber
+
+    console.log(currentRowCountNumber);
     var rowCounterDisplay = document.getElementById("rowCount");
 
     if (maxRowCountNumber > 0) {
@@ -44,7 +46,7 @@ function updateRowCounterDisplay() {
 function changeMaxRowCount(event) {
     var a = event.target.value;
 
-    // console.log(document.getElementById(maxRowCountNumber));
+   // console.log(document.getElementById(maxRowCountNumber));
 
     if (isNaN(a) === false && a !== "") {
         if (a > 0) {
@@ -72,13 +74,13 @@ function addSection(){
 }
 
 function appendClass() {
-    document.querySelectorAll("#main .section").forEach(function(n) {
+    document.querySelectorAll("body #main .section").forEach(function(n) {
 
         n.addEventListener("click", function(event) {
-                var clickedThing = event.target;
+            var clickedThing = event.target;
 
-                if (!clickedThing.classList.contains("selected")) {
-            clickedThing.classList.add("selected");
+            if (!clickedThing.classList.contains("selected")) {
+                clickedThing.classList.add("selected");
             }
         });
     });
@@ -90,12 +92,28 @@ function removeSection() {
         });
     };
 
-window.onload = function() {
+window.onload = function() { 
+    // document.querySelectorAll("#decrease").forEach(function(n) { 
+    //     n.addEventListener("click", function() {
+    //         document.getElementById("decrease").addEventListener("click", decreaseCount, false); 
+    //     }
+    // )});
+
+    // document.querySelectorAll("#increase").forEach(function(n){
+    //     n.addEventListener("click", function(n) {
+    //         document.getElementById("increase").addEventListener("click", increaseCount, false);
+    //     })
+    // })
+
+    // document.querySelectorAll("#maxRowCount").forEach(function(n){
+    //     n.addEventListener("click", function(n) {
+    //         document.getElementById("maxRowCount").addEventListener("change", changeMaxRowCount, false);
+    //     })
+    // })
     document.getElementById("decrease").addEventListener("click", decreaseCount, false);
     document.getElementById("increase").addEventListener("click", increaseCount, false);
     document.getElementById("maxRowCount").addEventListener("change", changeMaxRowCount, false);
     document.getElementById("addSection").addEventListener("click", addSection, false);
     document.getElementById("removeSection").addEventListener("click", removeSection, false);
-    appendClass();
-
+    document.getElementById("main").addEventListener("click", appendClass, false);
 };
