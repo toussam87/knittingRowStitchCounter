@@ -10,21 +10,18 @@ DONE 5. when user incremenets over the desired row, each increment an alert goes
 
 DONE 6. when a user tries to decrease row count when row count is already 0, alert goes off letting them know there is already 0 rows, "You currently have zero rows."
 
-7. Add an input element via javascript
+DONE 7. Add an input element via javascript
 
-7a. User is able to add section to page
+DONE 7a. User is able to add section to page
 
-8. User is able to remove section from page
+DONE 8. User is able to remove section from page
 
-8a. when user selects remove section from page, they are asked to confirm removal 
+DONE 8a. when user selects remove section from page, they are asked to confirm removal 
 
 DONE 9. User can reset max row count
 
-10. user is able to label section based of knitting pattern 
+DONE 10. user is able to label section based of knitting pattern 
 
 
-HINTS FOR #7:
-
-https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
-
-https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
+NEED TO FIX
+07/04/17: DISCOVERED ISSUE WITH INCREMENTING AND DECREMENTING WITH APPENDED DIV SECTIONS
