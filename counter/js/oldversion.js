@@ -3,16 +3,22 @@ var currentRowCountNumber = 0;
 
 //function to decrease current Row Count
 function decreaseCount() {
-    if (currentRowCountNumber > 0) {
-        currentRowCountNumber--;
-    } else {
-        alert("You currently have zero rows.")
+    for (var i = 0; i < decrease.length; ii++) {
+        decrease[i].addEventListener("click", remove)
     }
-    updateRowCounterDisplay();
+        function remove() {
+        if (currentRowCountNumber > 0) {
+            currentRowCountNumber--;
+        } else {
+            alert("You currently have zero rows.")
+        }
+        updateRowCounterDisplay();
+        }
 };
 
 //function to increase current Row Count
 function increaseCount() {
+
     currentRowCountNumber++;
     updateRowCounterDisplay();
     
@@ -46,8 +52,6 @@ function updateRowCounterDisplay() {
 function changeMaxRowCount(event) {
     var a = event.target.value;
 
-   // console.log(document.getElementById(maxRowCountNumber));
-
     if (isNaN(a) === false && a !== "") {
         if (a > 0) {
             maxRowCountNumber = parseInt(a);
@@ -68,8 +72,8 @@ function changeMaxRowCount(event) {
 
 function addSection(){
     var newSection = document.createElement("div");
-    newSection.className = 'section';
-    newSection.innerHTML = '<input class="sectionName" placeholder="Section Name"></input> <span class="count"> <button id="decrease"> - </button> <span id="rowCount">0 </span> <button id="increase"> + </button> </span> <input id="maxRowCount" placeholder="Enter Max Row Count"></input> </div> </div>';
+    newSection.id = 'section';
+    newSection.innerHTML = '<input class="sectionName" placeholder="Section Name"></input> <span class="count"> <button class="decrease" id="decrease"> - </button> <span id="rowCount">0 </span> <button class="increase" id="increase"> + </button> </span> <input id="maxRowCount" placeholder="Enter Max Row Count"></input> </div> </div>';
     document.getElementById("main").appendChild(newSection);
 }
 
@@ -93,8 +97,8 @@ function removeSection() {
     };
 
 window.onload = function() { 
-    document.getElementById("decrease").addEventListener("click", decreaseCount, false);
-    document.getElementById("increase").addEventListener("click", increaseCount, false);
+    document.getElementsByClassName("decrease").addEventListener("click", decreaseCount, false);
+    document.getElementsByClassName("increase").addEventListener("click", increaseCount, false);
     document.getElementById("maxRowCount").addEventListener("change", changeMaxRowCount, false);
     document.getElementById("addSection").addEventListener("click", addSection, false);
     document.getElementById("removeSection").addEventListener("click", removeSection, false);
