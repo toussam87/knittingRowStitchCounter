@@ -72,12 +72,10 @@ function changeMaxRowCount(event) {
 }
 
 function addSection(){
-    document.getElementById("addSection").addEventListener("click", function() {
         var newSection = document.createElement("div");
         newSection.className = 'section';
         newSection.innerHTML = '<input class="sectionName" placeholder="Section Name"></input> <span class="count"> <button class="decrease"> - </button> <span class="rowCount">0 </span> <button class="increase" id="increase"> + </button> </span> <input class="maxRowCount" placeholder="Enter Max Row Count"></input> </div> </div>';
         document.getElementById("main").appendChild(newSection);
-    })
 }
 
 function appendClass() {
@@ -102,11 +100,10 @@ function removeSection() {
 window.onload = function() { 
     increaseCount();
     decreaseCount();
-    addSection();
     // document.getElementById("decrease").addEventListener("click", decreaseCount, false);
     // document.getElementById("increase").addEventListener("click", increaseCount, false);
     // document.getElementById("maxRowCount").addEventListener("change", changeMaxRowCount, false);
-    // document.getElementById("addSection").addEventListener("click", addSection, false);
-    // document.getElementById("removeSection").addEventListener("click", removeSection, false);
-    // document.getElementById("main").addEventListener("click", appendClass, false);
+    document.getElementById("addSection").addEventListener("click", addSection, false);
+    document.getElementById("removeSection").addEventListener("click", removeSection, false);
+    document.getElementById("main").addEventListener("click", appendClass, false);
 };

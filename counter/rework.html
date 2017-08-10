@@ -1,0 +1,16 @@
+<div class="section" data-maxrowcount="0" data-rowcount="0">
+    Hi I'm a rowcount section
+    <!-- all sorts of stuff -->
+    <button class="increase">increase</button>
+    <button class="decrease">decrease</button>
+</div>
+<script>
+    function increaseCount(event) {
+        var thisSectionsMaxRowCount = parseInt(event.target.parentElement.getAttribute("data-rowcount"), 10);
+        event.target.parentElement.setAttribute("data-rowcount", (thisSectionsMaxRowCount + 1));
+    }
+    document.querySelectorAll(".increase").forEach(function(buttonObj) {
+        console.log("foreach registered");
+        buttonObj.addEventListener("click", increaseCount, false);
+    });
+</script>
