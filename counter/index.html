@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <script type="text/javascript" src="js/main.js"></script>
-    <title>RowCounter</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script type="text/javascript" src="js/main.js"></script>
+        <title>RowCounter</title>
+    </head>
 
-<body>
-    <h1>Row Counter</h1>
-    <p>A cool way to count your rows </p>
+    <body>
+        <h1>Row Counter</h1>
+        <p>A cool way to count your rows </p>
 
-    <div id="navigation">
-        <button id="addSection">Add Section</button>
-        <button id="removeSection">Remove Section</button>
-
-    </div>
-
-    <div id="main">
-        <div class="section">
-            <input class="sectionName" placeholder="Section Name"></input>
-            <span class="count">
-                    <button class="decrease"> - </button> 
-                    <span class="rowCount">0 </span>
-            <button class="increase"> + </button>
-            </span>
-            <input class="maxRowCount" placeholder="Enter Max Row Count"></input>
+        <div id="navigation">
+            <button id="addSection">Add Section</button>
+            <button id="removeSection">Remove Section</button>
         </div>
-    </div>
-</body>
 
+        <div id="main">
+            <div class="section">
+                <input class="sectionName" placeholder="Section Name"></input>
+                <span class="count" data-maxrowcount="0" data-rowcount="0">
+                    <button class="decrease"> - </button> 
+                    <div class="rowCount">0 </div>
+                    <button class="increase"> + </button>
+                </span>
+                <input class="maxRowCount" placeholder="Enter Max Row Count"></input>
+            </div>
+        </div>
+    </body>
 </html>

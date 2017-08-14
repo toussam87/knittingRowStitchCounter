@@ -49,6 +49,7 @@ function updateRowCounterDisplay() {
     };
 };
 
+
 // function sets max Row count
 function changeMaxRowCount() {
     document.querySelectorAll(".maxRowCount").forEach(function(event) {

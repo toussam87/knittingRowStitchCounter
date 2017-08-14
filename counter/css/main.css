@@ -39,10 +39,11 @@ button {
     letter-spacing: .1vw;
 }
 
-#decrease,
-#increase {
+.decrease,
+.increase,
+.rowCount {
     margin: 5px;
-    display: inline-block;
+    display: inline;
 }
 
 #addSection,
@@ -52,7 +53,7 @@ button {
     margin: 10px 25px;
 }
 
-#maxRowCount {
+.maxRowCount {
     margin: 15px 20px;
     color: #665d65;
     border: #665d65 1px solid;

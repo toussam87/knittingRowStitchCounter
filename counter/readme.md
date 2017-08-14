@@ -25,3 +25,7 @@ DONE 10. user is able to label section based of knitting pattern
 
 NEED TO FIX
 07/04/17: DISCOVERED ISSUE WITH INCREMENTING AND DECREMENTING WITH APPENDED DIV SECTIONS
+
+Approaches 
+1) tried to make all elements that had ids have classes. I realized I had dynamic elements with the same ID names
+2) tried to grab all events by their ids and have events fire based off which specific element was clicked 

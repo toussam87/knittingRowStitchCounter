@@ -1,62 +1,74 @@
-var maxRowCountNumber;
-var currentRowCountNumber = 0;
+window.onload = function() { 
+    document.querySelectorAll(".increase").forEach(function(buttonObj) {
+        console.log("foreach registered");
+        buttonObj.addEventListener("click", increaseCount, false);
+    });
+    document.querySelectorAll(".decrease").forEach(function(buttonObj) {
+        console.log("foreach registered");
+        buttonObj.addEventListener("click", decreaseCount, false);
+    });
+    document.querySelectorAll(".maxRowCount").forEach(function(buttonObj) {
+        console.log("foreach registered");
+        buttonObj.addEventListener("change", changeMaxRowCount, false);
+    });
+}
 
 //function to decrease current Row Count
 function decreaseCount() {
-    document.querySelectorAll(".decrease").forEach(function(e) {
-        e.addEventListener("click", function() {
-            if (currentRowCountNumber > 0) {
-            currentRowCountNumber--;
-            } else {
-                alert("You currently have zero rows.")
-            }
-            updateRowCounterDisplay();
-        });
-    })
+    var sectionRowCount = parseInt(event.target.parentElement.getAttribute("data-rowcount"), 10);
+        if (sectionRowCount > 0) {
+                event.target.parentElement.setAttribute("data-rowcount", (sectionRowCount - 1));
+        } else {
+            alert("You currently have zero rows.")
+        }
+
+        updateRowCounterDisplay();
 };
 
-function increaseCount() {
-    document.querySelectorAll(".increase").forEach(function(e) {
-        e.addEventListener("click", function() {
-            currentRowCountNumber++;
-            updateRowCounterDisplay();
-            
-                //checks to see if current Row Count is equal to the desired set number of max row count
-                if (currentRowCountNumber === maxRowCountNumber) {
-                    alert("You have reached your desired number of rows.");
-                } 
-                //increments current row count past set max row count
-                else if (currentRowCountNumber > maxRowCountNumber) {
-                alert("You are going over your desired number of rows.");
-            };
-        });
-    });
+function increaseCount(event) {
+    var sectionRowCount = parseInt(event.target.parentElement.getAttribute("data-rowcount"), 10);
+    event.target.parentElement.setAttribute("data-rowcount", (sectionRowCount + 1));
+    var maxRowCount = parseInt(event.target.parentElement.getAttribute("data-maxrowcount"), 10)
+
+    if (sectionRowCount == maxRowCount) {
+        alert("You have reached your desired number of rows.")
+    } else if (sectionRowCount > maxRowCount) {
+        alert("You are going over your desired number of frows.")
+    }
+    
+    updateRowCounterDisplay();
 };
 
 function updateRowCounterDisplay() {
+    var sectionRowCount = parseInt(event.target.parentElement.getAttribute("data-rowcount"), 10);
+    var maxRowCount = parseInt(event.target.parentElement.getAttribute("data-maxrowcount"), 10);
 
-    // maxRowCountNumber
-    // currentRowCountNumber
-
-    console.log(currentRowCountNumber);
-    var rowCounterDisplay = document.getElementsByClassName("rowCount");
-
-    if (maxRowCountNumber > 0) {
-        rowCounterDisplay.innerHTML = currentRowCountNumber + " of " + maxRowCountNumber;
-    } 
-    else {
-        rowCounterDisplay.innerHTML = currentRowCountNumber;
+    var rowCounterDisplay = document.querySelector(".rowCount"); 
+    if (maxRowCount > 0) {
+        rowCounterDisplay.innerHTML = sectionRowCount + " of " + maxRowCount;
+    } else {
+        rowCounterDisplay.innerHTML = sectionRowCount;
     };
 };
 
-// function sets max Row count
+// function sets maximum Row Count
 function changeMaxRowCount(event) {
     var a = event.target.value;
 
     if (isNaN(a) === false && a !== "") {
         if (a > 0) {
-            maxRowCountNumber = parseInt(a);
-            
+            var setMaxRowCount = document.querySelector(".count");
+            setMaxRowCount.setAttribute("data-maxrowcount", a);
+        
+            // updateRowCounterDisplay();
+            // var sectionRowCount = parseInt(event.target.parentElement.getAttribute("data-rowcount"), 10);
+            // var maxRowCount = parseInt(event.target.parentElement.getAttribute("data-maxrowcount"), 10);
+            // console.log(sectionRowCount);
+            // console.log(maxRowCount);
+            // var updateRowCounter = document.querySelector(".rowCount");
+            // updateRowCounter.innerHTML = sectionRowCount + " of " + maxRowCount;
+            // var maxRowCount = parseInt(a, 10);
+            // var maxRowCount = document.querySelector(".rowCount");
         } 
         else {
             alert("You've entered a number less than or equal to zero.");
@@ -66,9 +78,10 @@ function changeMaxRowCount(event) {
         alert("Please enter a number.");
     }
     else if (a === "") {
-        maxRowCountNumber = undefined;
+        maxRowCount = undefined;
     }
-    updateRowCounterDisplay();
+    // console.log(a);
+
 }
 
 function addSection(){
@@ -96,14 +109,3 @@ function removeSection() {
         thingToBeRemoved.remove();
         });
     };
-
-window.onload = function() { 
-    increaseCount();
-    decreaseCount();
-    // document.getElementById("decrease").addEventListener("click", decreaseCount, false);
-    // document.getElementById("increase").addEventListener("click", increaseCount, false);
-    // document.getElementById("maxRowCount").addEventListener("change", changeMaxRowCount, false);
-    document.getElementById("addSection").addEventListener("click", addSection, false);
-    document.getElementById("removeSection").addEventListener("click", removeSection, false);
-    document.getElementById("main").addEventListener("click", appendClass, false);
-};
