@@ -25,7 +25,7 @@ function decreaseCount() {
             alert("You currently have zero rows.")
         }
 
-        updateRowCounterDisplay();
+        updateRowCounterDisplay(event);
 };
 
 function increaseCount(event) {
@@ -39,14 +39,14 @@ function increaseCount(event) {
         alert("You are going over your desired number of frows.")
     }
     
-    updateRowCounterDisplay();
+    updateRowCounterDisplay(event);
 };
 
-function updateRowCounterDisplay() {
+function updateRowCounterDisplay(event) {
     var sectionRowCount = parseInt(event.target.parentElement.getAttribute("data-rowcount"), 10);
     var maxRowCount = parseInt(event.target.parentElement.getAttribute("data-maxrowcount"), 10)
 
-    var rowCounterDisplay = document.querySelector(".rowCount"); 
+    var rowCounterDisplay = event.target.parentElement.querySelector(".rowCount"); 
     if (maxRowCount > 0) {
         rowCounterDisplay.innerHTML = sectionRowCount + " of " + maxRowCount;
     } else {
@@ -61,7 +61,7 @@ function changeMaxRowCount(event) {
     
     if (isNaN(a) === false && a !== "") {
         if (a > 0) {
-            var setMaxRowCount = document.querySelector(".count");
+            var setMaxRowCount = event.target.parentElement.querySelector(".count");
             setMaxRowCount.setAttribute("data-maxrowcount", a);
             // console.log(data-maxrowcount);
         } 
@@ -82,7 +82,10 @@ function addSection(){
         var newSection = document.createElement("div");
         newSection.className = 'section';
         newSection.innerHTML = '<input class="sectionName" placeholder="Section Name"></input> <span class="count"  data-maxrowcount="0" data-rowcount="0"> <button class="decrease"> - </button> <span class="rowCount">0 </span> <button class="increase"> + </button> </span> <input class="maxRowCount" placeholder="Enter Max Row Count"></input> </div> </div>';
-        document.getElementById("main").appendChild(newSection);
+        var addedSection = document.getElementById("main").appendChild(newSection);
+        addedSection.querySelector(".increase").addEventListener("click", increaseCount, false);
+        addedSection.querySelector(".decrease").addEventListener("click", decreaseCount, false);
+        addedSection.querySelector(".maxRowCount").addEventListener("change", changeMaxRowCount, false);
 }
 
 function appendClass() {
